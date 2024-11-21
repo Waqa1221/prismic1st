@@ -29,6 +29,8 @@ export interface SettingsDocumentDataNavigationItem {
   lable: prismic.KeyTextField;
 }
 
+type SettingsDocumentDataSlicesSlice = never;
+
 /**
  * Content for settings documents
  */
@@ -76,6 +78,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   navigation: prismic.GroupField<Simplify<SettingsDocumentDataNavigationItem>>;
+
+  /**
+   * Slice Zone field in *settings*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<SettingsDocumentDataSlicesSlice>;
 }
 
 /**
@@ -120,6 +133,7 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
+      SettingsDocumentDataSlicesSlice,
       AllDocumentTypes,
     };
   }
